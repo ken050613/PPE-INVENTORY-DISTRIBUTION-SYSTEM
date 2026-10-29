@@ -1,0 +1,135 @@
+PPE INVENTORY & DISTRIBUTION SYSTEM - How to Use
+==================================================
+
+This program manages PPE (Personal Protective Equipment) inventory for
+hospitals. It lets you register a user, log in, create initial data
+(equipment, hospitals, suppliers, distributions), update stock, track
+items, search distributions and print reports.
+
+
+BEFORE YOU START (one-time setup)
+==================================
+1. Install Python 3 on your computer (python.org).
+2. Install pandas (the program uses it). Open a terminal / Command Prompt
+   and run:
+
+         pip install pandas
+
+3. Make sure these two files are in the SAME folder:
+         - Assigement file.py   (the program)
+         - user_data.txt        (the account list - must exist before first run)
+
+   If user_data.txt does not exist yet, create it with exactly these two
+   lines (then save it next to Assigement file.py):
+
+         UserID    | Password
+         ----------+---------
+
+   (You can leave it empty at first - you will add your own account by
+    registering inside the program.)
+
+
+STEP 1 - Run the program
+=========================
+1. Open a terminal / Command Prompt.
+2. Go to the folder that contains the files, for example:
+
+         cd "D:\assignment\python project"
+
+3. Run the program:
+
+         python Assigement file.py
+
+
+STEP 2 - The Login Menu
+========================
+When the program starts, you will see:
+
+         1. Login
+         2. Change password
+         3. Register
+         4. Exit
+
+>>> FIRST TIME: register your account
+------------------------------------
+1. Type 3 and press Enter.
+2. Type your new User ID and press Enter.
+   (It must be unique - if it already exists, the program will tell you.)
+3. Type your new Password and press Enter.
+4. You will see "New user added successfully." This account is saved
+   into user_data.txt.
+
+>>> Log in
+---------
+1. On the menu, type 1 and press Enter.
+2. Enter your User ID.
+3. Enter your Password.
+   - You get 3 tries. If all 3 are wrong, the program closes.
+   - On success you will enter the Main Menu.
+
+>>> Other options
+-----------------
+   2 = Change password (enter User ID, old password, then new password)
+   4 = Exit the program.
+
+
+STEP 3 - The Main Menu
+=======================
+After logging in, you will see:
+
+         1. Initial Inventory Creation
+         2. Inventory System Update
+         3. Item Inventory Tracking
+         4. Search Distributions
+         5. Print Reports
+         6. Exit
+
+1) Initial Inventory Creation
+   Choose one of:
+       1. PPE        - enter item code, item name, supplier code (stock = 100)
+       2. Hospital   - enter hospital code and hospital name
+       3. Supplier   - enter supplier code, supplier name, item code,
+                       quantity and supply date (YYYY-MM-DD)
+       4. Distribution - enter distribution code, item code, hospital code,
+                         quantity, distribution date and user ID
+       5. Return to Main Menu
+   After creating a file you can choose "2. Download as CSV" to save it
+   as a .csv file.
+
+2) Inventory System Update
+       1. Update (Receive)    - add stock from a supplier to the inventory
+       2. Distribution       - send stock to a hospital (checks your login,
+                               the hospital code, the item code and that
+                               there is enough stock)
+       3. Return to Main Menu
+
+3) Item Inventory Tracking
+       1. Show all items sorted by item code
+       2. Show items with stock LESS THAN 25 boxes (low stock warning)
+       3. Check stock of one item (enter the item code)
+       4. Return to Main Menu
+
+4) Search Distributions
+   Enter an item code. The program shows, for each hospital, the dates and
+   quantities distributed, plus the total quantity per hospital.
+
+5) Print Reports
+       1. Supplier report - enter a supplier code to see what PPE they supplied
+       2. Hospital report - enter a hospital code to see what was distributed
+       3. Transactions    - enter year (YYYY) and month (MM) to see all
+                          distributions in that month
+       4. Return to Main Menu
+
+6) Exit - closes the program.
+
+
+IMPORTANT NOTES
+===============
+- Dates must always be typed as  YYYY-MM-DD  (e.g. 2026-10-29).
+- All data is saved into text files in the same folder:
+  user_data.txt, ppe.txt, hospital.txt, supplier.txt, distribution.txt.
+  Do NOT rename or move them - keep them next to Assigement file.py.
+- When you choose "Download as CSV", a .csv version of the file is created.
+- If the program says a file is missing, make sure you ran "Initial
+  Inventory Creation" first to create that file.
+- Choose option 6 (or 4 on the login menu) to exit safely.
